@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.Api", "CRUD_API_DDD\CRUD.Api.csproj", "{91ADBDB0-B995-4801-A655-0F15D793DCD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.Api", "CRUD.Api\CRUD.Api.csproj", "{91ADBDB0-B995-4801-A655-0F15D793DCD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD.Application", "CRUD.Application\CRUD.Application.csproj", "{31824F7C-C408-41F1-BF58-459CF2FAC2C1}"
 EndProject
