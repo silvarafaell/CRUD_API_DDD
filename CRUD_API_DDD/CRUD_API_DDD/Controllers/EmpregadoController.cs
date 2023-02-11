@@ -4,7 +4,6 @@ using CRUD.Domain.Models;
 using CRUD_API_DDD.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static CRUD.Domain.Models.Empregado;
 
 namespace CRUD.Api.Controllers
 {
@@ -21,8 +20,8 @@ namespace CRUD.Api.Controllers
         [ProducesResponseType(typeof(Empregado), 200)]
         [ProducesResponseType(typeof(ErrorViewModel), 404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult> PostAgency(Empregado agency)
-         => CustomResponse(await _service.CreateAgency(agency));
+        public async Task<ActionResult> PostEmpregado(Empregado empregado)
+         => CustomResponse(await _service.CreateEmpregado(empregado));
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Empregado>), 200)]
@@ -34,7 +33,21 @@ namespace CRUD.Api.Controllers
         [ProducesResponseType(typeof(Empregado), 200)]
         [ProducesResponseType(typeof(ErrorViewModel), 404)]
         [ProducesResponseType(500)]
-        public async Task<ActionResult<Promocoes>> Get(int matricula)
-            => CustomResponse(await _service.FindById(matricula));
+        public async Task<ActionResult<Empregado>> Get(int matricula)
+            => CustomResponse(await _service.FindByMatricula(matricula));
+
+        [HttpDelete("{matricula}")]
+        [ProducesResponseType(typeof(Empregado), 200)]
+        [ProducesResponseType(typeof(ErrorViewModel), 404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<Empregado>> Delete(int matricula)
+            => CustomResponse(await _service.Delete(matricula));
+
+        [HttpPut("{matricula}")]
+        [ProducesResponseType(typeof(Empregado), 200)]
+        [ProducesResponseType(typeof(ErrorViewModel), 404)]
+        [ProducesResponseType(500)]
+        public async Task<ActionResult<Empregado>> Update(int matricula)
+           => CustomResponse(await _service.Update(matricula));
     }
 }

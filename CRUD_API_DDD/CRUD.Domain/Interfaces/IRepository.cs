@@ -8,7 +8,7 @@ namespace CRUD.Domain.Interfaces
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIdAsync(int id);
+        Task<TEntity> GetByMatriculaAsync(int id);
 
         Task<TEntity> GetByIdAsync(long id);
 

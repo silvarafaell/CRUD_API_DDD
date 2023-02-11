@@ -25,7 +25,7 @@ namespace CRUD.Data.Repositories
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
             => await _currentSet.ToListAsync();
 
-        public virtual async Task<TEntity> GetByIdAsync(int id)
+        public virtual async Task<TEntity> GetByMatriculaAsync(int id)
             => await _currentSet.FindAsync(id);
 
         public virtual async Task<TEntity> GetByIdAsync(long id)
