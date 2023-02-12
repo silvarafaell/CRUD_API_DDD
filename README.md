@@ -1,1 +1,3 @@
-# CRUD_API_DDD
+### Crud de Empregado em DDD
+- Utilizado .Net 6
+- Testes Unitários com xUnit e Moq
