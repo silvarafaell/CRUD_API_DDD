@@ -10,9 +10,13 @@ namespace CRUD.Application.Services
     public class EmpregadoService : Service, IEmpregadoService
     {
         private readonly IEmpregadoRepository _repository;
+        private readonly IRabbitMQ _rabbitMQ;
 
-        public EmpregadoService(IEmpregadoRepository repository, IMapper mapper) : base(mapper)
-            => _repository = repository;
+        public EmpregadoService(IEmpregadoRepository repository, IMapper mapper, IRabbitMQ rabbitMQ) : base(mapper)
+        {
+            _repository = repository;
+            _rabbitMQ = rabbitMQ;
+        }              
 
         public async Task<OperationResult> CreateEmpregado(Empregado empregado)
         {
@@ -20,6 +24,8 @@ namespace CRUD.Application.Services
                 return Error(ErrorMessages.IdNotFoundError(), HttpStatusCode.NotFound);
 
             await _repository.InsertAsync(empregado);
+
+            _rabbitMQ.Add();
 
             return Success();
         }

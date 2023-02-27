@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using AutoMapper;
+using CRUD.Application.Interfaces;
 using CRUD.Application.Services;
 using CRUD.Domain.Interfaces;
 using CRUD.Domain.Models;
@@ -14,6 +15,7 @@ namespace CRUD.Test.Services
         private readonly Mock<IEmpregadoRepository> _mockEmpregadoRepository;
         private readonly EmpregadoService _empregadoService;
         private readonly Mock<IMapper> _mockMapper;
+        private readonly Mock<IRabbitMQ> _mockRabbitMQ;
 
         private readonly Fixture _fixture;
 
@@ -25,9 +27,11 @@ namespace CRUD.Test.Services
 
             _mockEmpregadoRepository = new Mock<IEmpregadoRepository>();
 
+            _mockRabbitMQ = new Mock<IRabbitMQ>();
+
             _mockMapper = new Mock<IMapper>();
 
-            _empregadoService = new EmpregadoService(_mockEmpregadoRepository.Object, _mockMapper.Object);
+            _empregadoService = new EmpregadoService(_mockEmpregadoRepository.Object, _mockMapper.Object, _mockRabbitMQ.Object);
         }
 
         [Fact]

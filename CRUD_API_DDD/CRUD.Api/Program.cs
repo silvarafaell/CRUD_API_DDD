@@ -16,6 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("Empregado");
 builder.Services.AddDbContext<FactoryContext>(o => o.UseSqlServer(connectionString));
 builder.Services.AddScoped<IEmpregadoRepository, EmpregadoRepository>();
 builder.Services.AddScoped<IEmpregadoService, EmpregadoService>();
+builder.Services.AddScoped<IRabbitMQ, RabbitMQService>();
 
 
 
